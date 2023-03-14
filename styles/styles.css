@@ -19,7 +19,8 @@
 }
 
 .container {
-    width: 1440px;
+    max-width: 1440px;
+    margin: 0 auto;
     height: 83px;
     display: flex;
     justify-content: center;
@@ -78,30 +79,38 @@
 
 /* main */
 .main {
-    background-image: url('../images/main.jpg');
-    background-size: cover;
-    width: 1440px;
-    height: 707px;
     position: relative;
+    background: url('../images/main.jpg') center;
+    background-size: 100%;
+    width: 100%;
+    max-height: 707px;
+    margin: 0;
 }
 
 .main-overlay {
+    position: absolute;
     width: 100%;
 	height: 100%;
-	position: absolute;
 	top: 0;
 	left: 0;
 	background: #000;
 	opacity: 0.7;
 }
 
+.main-section {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 707px;
+    position: relative;
+}
+
 .main-container {
+    position: absolute;
     top: 194px;
-    left: 134px;
-    margin-left: 0;
+    left: 0px;
+    padding-left: 134px;
     width: 676.11px;
     height: 305px;
-    position: relative;
     z-index: 5;
 }
 
@@ -159,9 +168,16 @@
 /* projects */
 
 .projects {
-    width: 1440px;
+    max-width: 1440px;
+    margin: 0 auto;
     height: 1074px;
+    position: relative;
+}
+
+.projects-background {
+    margin: 0 auto;
     background-color: black;
+    background-size: 100% auto;
     position: relative;
 }
 
@@ -187,7 +203,25 @@
 .projects-container li {
     font-size: 14px;
     line-height: 19px;
+}
+
+.name-project {
+    cursor: pointer;
     color: rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.active-title {
+    color: #E3B873;
+}
+
+.active-title::before {
+    background: #E3B873;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    top: 25px;
+    position: absolute;
 }
 
 .content-project {
@@ -202,6 +236,17 @@
     font-size: 27px;
     line-height: 37px;
     letter-spacing: -0.07em;
+    position: relative;
+}
+
+.project-title::before {
+    background: #E3B873;
+    content: " ";
+    width: 92px;
+    height: 1px;
+    top: 55px;
+    left: 170px;
+    position: absolute;
 }
 
 .project-subtitle {
@@ -227,6 +272,7 @@
 .grid-city {
     width: 66px;
     height: 22px;
+    position: relative;
 }
 
 .subtitle-grid {
@@ -234,64 +280,110 @@
     line-height: 21px;
     text-transform: none;
     color:#FFFFFF;
+    opacity: 0;
 }
 
 .subtitle-grid-1 {
     width: 161px;
     height: 42px;
     margin-top: 9px;
+    opacity: 0;
+}
+
+.active-grid {
+    width: 161px;
+    height: 42px;
+    margin-top: 29px;
+    top: 0;
+    position: absolute;
+    opacity: 1;
 }
 
 .grid-area {
     width: 213px;
     height: 22px;
     margin-left: 190px;
-    margin-top: -73px;
+    margin-top: -22px;
 }
 
 .subtitle-grid-2 {
     width: 51px;
     height: 21px;
     margin-left: 190px;
-    margin-top: 9px;
+    margin-top: 29px;
 }
 
 .grid-time {
     width: 156px;
     height: 22px;
-    margin-top: 34px;
+    margin-top: 104px;
 }
 
 .subtitle-grid-3 {
     width: 103px;
     height: 24px;
-    margin-top: 9px;
+    margin-top: 159px;
 }
 
 .grid-cost {
     width: 218px;
     height: 22px;
     margin-left: 190px;
-    margin-top: -55px;
+    margin-top: -22px;
 }
 
 .subtitle-grid-4 {
     width: 115px;
     height: 24px;
     margin-left: 190px;
-    margin-top: 9px;
+    margin-top: 159px;
 }
 
 .arrows {
-    background-image: url(../images/arrows.png);
     width: 205.68px;
     height: 13.28px;
     margin-top: 79.64px;
-    filter: contrast(0%);
+    
 }
 
+.right {
+    width: 42px;
+    height: 14px;
+    margin-left: 117px;
+}
+
+.slider-arrow {
+    cursor: pointer;
+    position: relative;
+    z-index: 100px;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 53px;
+    top: 565px;
+    bottom: -20px;
+    width: 100px;
+}
+
+.slider-dots-item {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);;
+    border-radius: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background 0.4s ease;
+}
+
+.slider-dots-item.active {
+    background: #FFFFFF;
+  }
+
 .project-img {
-    background-image: url(../images/project1.jpg);
+    background-size: cover;
     width: 679px;
     height: 482.38px;
     margin-left: 492px;
@@ -299,12 +391,26 @@
     top: 0;
     left: 0;
     margin-bottom: 90.72px;
+    position: relative;
+}
+
+.project-image {
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+  }
+
+.active-slide {
+    opacity: 1;
+    position: absolute;
+    z-index: 1000;
 }
 
 /* control */
 
 .control {
-    width: 1440px;
+    max-width: 1440px;
+    margin: 0 auto;
     height: 1072px;
     margin-top: -298px;
     z-index: -1;
@@ -480,7 +586,8 @@ input {
 /* types and prices */
 
 .types {
-    width: 1440px;
+    max-width: 1440px;
+    margin: 0 auto;
     height: 1851px;
 }
 
@@ -737,23 +844,30 @@ input {
     text-shadow: 0px 3px 10px rgba(227, 184, 115, 0.15);
 }
 
-.examples {
-    width: 1440px;
-    height: 866px;
-    position: relative;
-}
-
 .examples-fon {
+    position: relative;
+    background: url('../images/examples.jpg') center;
+    background-size: 100%;
     width: 100%;
-    height: 100%;
+    max-height: 866px;
+    margin: 0;
 }
 
 .gradient {
     position: absolute;
+    width: 100%;
+	height: 100%;
     z-index: 1;
     top: 0;
     left: 0;
     background: linear-gradient(109.8deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+.examples {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 866px;
+    position: relative;
 }
 
 .examples-container {
@@ -825,7 +939,8 @@ input {
 }
 
 .clients {
-    width: 1440px;
+    max-width: 1440px;
+    margin: 0 auto;
     height: 959px;
 }
 
@@ -910,18 +1025,30 @@ input {
     color: #FFFFFF;
 }
 
-.end {
-    width: 1440px;
-    height: 955px;
+.end-fon {
     position: relative;
+    background: url('../images/end-img.jpg') center;
+    background-size: 100%;
+    width: 100%;
+    max-height: 953.9px;
+    margin: 0;
 }
 
 .end-gradient {
     position: absolute;
+    width: 100%;
+    height: 100%;
     z-index: 1;
     top: 0;
     left: 0;
     background: linear-gradient(180deg, rgba(24, 24, 24, 0.9) 3.47%, rgba(24, 24, 24, 0.72) 100%);
+}
+
+.end {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 955px;
+    position: relative;
 }
 
 .end-container {
